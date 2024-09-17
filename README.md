@@ -1,7 +1,5 @@
 # Chrome Extension TypeScript Starter
 
-![build](https://github.com/chibat/task-tackler/workflows/build/badge.svg)
-
 Chrome Extension, TypeScript and Visual Studio Code
 
 ## Prerequisites
