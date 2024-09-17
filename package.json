@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/task-tackler.git"
+    "url": "https://github.com/davedude1011/taskTackler.git"
   },
   "dependencies": {
     "react": "^18.2.0",
