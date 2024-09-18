@@ -19,6 +19,11 @@
       "matches": ["https://www.sparxmaths.uk/*"],
       "js": ["js/sparxmaths/main.js"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["https://my.educake.co.uk/*"],
+      "js": ["js/educake/main.js"],
+      "run_at": "document_end"
     }
   ],
 
