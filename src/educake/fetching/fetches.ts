@@ -64,7 +64,7 @@ export async function loopAnswerQuestions() {
 }
 
 async function getGeminiAnswer(questionData: Question): Promise<string|null> {
-    const answerData = await fetch('http://localhost:3000/api/educake/getAnswer', {
+    const answerData = await fetch('https://task-tackler-nu.vercel.app/api/educake/getAnswer', {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain',
