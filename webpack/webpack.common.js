@@ -8,6 +8,7 @@ module.exports = {
       background: path.join(srcDir, 'background.ts'),
       "sparxmaths/main": path.join(srcDir, 'sparxmaths', 'main.ts'),
       "educake/main": path.join(srcDir, 'educake', 'main.ts'),
+      "dashboard/main": path.join(srcDir, 'dashboard', 'main.ts'),
     },
     output: {
         path: path.join(__dirname, "../dist/js"),

@@ -1,4 +1,4 @@
-import { classContains, removeElements } from "../../utils/utils"
+import { classContains } from "../../utils/utils"
 
 export function toggleDesmos() {
     const questionContainer = classContains("_Activity_")
@@ -22,6 +22,7 @@ export function toggleDesmos() {
         desmosShell.classList.add("task-tackler-desmos-page", "_QuestionContainer_1nj91_1", "task-tackler-desmos-page-active")
         desmosShell.style.width = "fit-content"
         desmosShell.style.padding = "12px"
+        desmosShell.style.minWidth = "350px"
 
         const desmosIframe = document.createElement("iframe")
         desmosIframe.src = "https://www.desmos.com/scientific"
@@ -29,6 +30,6 @@ export function toggleDesmos() {
         desmosIframe.style.borderRadius = "6px"
 
         desmosShell.appendChild(desmosIframe)
-        questionContainer?.insertBefore(desmosShell, questionContainer?.firstChild)
+        questionContainer?.appendChild(desmosShell)
     }
 }

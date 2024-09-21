@@ -1,6 +1,8 @@
-import { LuBrainCircuit, LuCalculator } from "../../utils/icons";
-import { classContains, classContainsAll, easingFunction, injectCss, removeElements } from "../../utils/utils";
-import { toggleDesmos } from "./desmsos";
+import { runOnSubscription } from "../../storage/subscription";
+import { LuCalculator, LuSparkles } from "../../utils/icons";
+import { classContains, easingFunction, injectCss, removeElements } from "../../utils/utils";
+import { toggleChatbot } from "./chatbot";
+import { toggleDesmos } from "./desmos";
 import { getCurrentQuestionId, getQuestion, getSolutionString, toggleSolution } from "./solution";
 
 function cleanHeader() {
@@ -74,6 +76,9 @@ function cleanFooterBar() {
                 //footerElement?.insertBefore(createQuestionFooterButton("outline", () => {}, "Ask Gemini", LuBrainCircuit), footerElement?.firstChild)
                 footerElement?.insertBefore(createQuestionFooterButton("outline", "calculator-button", toggleDesmos, "Calculator", LuCalculator), footerElement?.firstChild)
                 footerElement?.insertBefore(createQuestionFooterButton("primary", "solution-question-button", toggleSolution, "Solution"), footerElement?.firstChild)
+                runOnSubscription(() => {
+                    footerElement?.insertBefore(createQuestionFooterButton("outline", "task-tackler-chatbot", toggleChatbot, "Chatbot", LuSparkles), footerElement?.childNodes[2])
+                })
                 
                 const answerButton = footerElement?.lastChild
                 answerButton?.addEventListener("click", cleanQuestionScreen)
