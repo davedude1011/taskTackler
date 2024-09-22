@@ -26,6 +26,11 @@
       "run_at": "document_end"
     },
     {
+      "matches": ["https://app.senecalearning.com/*"],
+      "js": ["js/seneca/main.js"],
+      "run_at": "document_end"
+    },
+    {
       "matches": [
         "https://task-tackler-nu.vercel.app/*",
         "http://localhost:3000/*"

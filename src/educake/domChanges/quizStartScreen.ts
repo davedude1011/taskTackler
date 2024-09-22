@@ -1,6 +1,7 @@
-import { classContains, classContainsAll, removeElements } from "../../utils/utils";
+import { classContains, classContainsAll, easingFunction, removeElements } from "../../utils/utils";
 import { getQuizData, loopAnswerQuestions } from "../fetching/fetches";
 import { getJwtToken } from "../fetching/sessionData";
+import { cleanQuizScreen } from "./quiz";
 
 function insertAutoCompleteButton() {
     const buttonAlreadyExists = document.querySelector(".task-tackler-auto-complete-quiz-button")
@@ -70,7 +71,20 @@ export function setAutoCompletionAnswer(answer: string) {
     }
 }
 
+function beginButtonEvent() {
+    const beginQuizButton = document.querySelectorAll(".large-arrow-right:not(.task-tackler-auto-complete-quiz-button)")[1]
+    if (beginQuizButton) {
+        beginQuizButton.addEventListener("click", () => {
+            easingFunction(() => {
+                console.log("hi there")
+                cleanQuizScreen()
+            }, 1, 0.2)
+        })
+    }
+}
+
 export function cleanQuizStartScreen() {
     insertAutoCompleteButton()
     insertCard()
+    beginButtonEvent()
 }
