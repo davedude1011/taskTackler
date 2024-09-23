@@ -3,7 +3,7 @@
 
   "name": "task-tackler",
   "description": "A homework extension designed to ease homework sites",
-  "version": "1.0",
+  "version": "3.0",
 
   "options_ui": {
     "page": "options.html"
