@@ -1,3 +1,4 @@
+import { ifSettingTrue } from "../../settings/settings"
 import { LuSparkles } from "../../utils/icons"
 import { removeElements } from "../../utils/utils"
 import { toggleChatbot } from "./chatbot"
@@ -30,6 +31,6 @@ function removeFooter() {
 }
 
 export function cleanQuizScreen() {
-    addChatbotButton()
-    removeFooter()
+    ifSettingTrue("educakeAddChatbot", addChatbotButton)
+    ifSettingTrue("educakeAddAutoComplete", removeFooter)
 }

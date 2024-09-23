@@ -1,6 +1,7 @@
-import { getLocalSubscriptionCheck, setStripeId } from "../storage/subscription";
+import { clearStripeId, getLocalSubscriptionCheck, setStripeId } from "../storage/subscription";
 import { onRecieveMessage, sendMessage } from "../utils/communication";
 import { easingFunction, functionMapping } from "../utils/utils";
+import { handleDashboardSettings } from "./settings";
 import { sparxDashboard } from "./sparx";
 
 function stripeConnection() {
@@ -21,12 +22,14 @@ function stripeConnection() {
     onRecieveMessage("refreshSubscriptionData", (_) => {
         getLocalSubscriptionCheck(true)
     })
+    onRecieveMessage("clearStripeId", (_) => {
+        clearStripeId()
+    })
 }
 
 function main() {
     const mapping = {
-        "/dashboard": [ stripeConnection ],
-        "/dashboard/sparx": [ sparxDashboard ]
+        "/dashboard": [ stripeConnection, sparxDashboard, handleDashboardSettings ],
     }
     functionMapping(mapping)
     easingFunction(() => {

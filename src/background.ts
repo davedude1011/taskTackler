@@ -1,5 +1,5 @@
 chrome.action.onClicked.addListener((tab) => {
-  chrome.tabs.create({ url: "https://task-tackler-nu.vercel.app/dashboard" });
+  chrome.tabs.create({ url: "https://task-tackler-nu.vercel.app/dashboarddashboard" });
 });
 
 chrome.tabs.onUpdated.addListener(

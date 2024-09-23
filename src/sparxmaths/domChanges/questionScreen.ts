@@ -1,3 +1,4 @@
+import { ifSettingTrue } from "../../settings/settings";
 import { saveSparxData } from "../../storage/sparxData";
 import { runOnSubscription } from "../../storage/subscription";
 import { LuCalculator, LuSparkles } from "../../utils/icons";
@@ -75,10 +76,16 @@ function cleanFooterBar() {
             else if (prevButton.textContent?.includes("Previous") || prevButton.textContent == "") { // the question page
                 removeElements([prevButton])
                 //footerElement?.insertBefore(createQuestionFooterButton("outline", () => {}, "Ask Gemini", LuBrainCircuit), footerElement?.firstChild)
-                footerElement?.insertBefore(createQuestionFooterButton("outline", "calculator-button", toggleDesmos, "Calculator", LuCalculator), footerElement?.firstChild)
-                footerElement?.insertBefore(createQuestionFooterButton("primary", "solution-question-button", toggleSolution, "Solution"), footerElement?.firstChild)
-                runOnSubscription(() => {
-                    footerElement?.insertBefore(createQuestionFooterButton("outline", "task-tackler-chatbot", toggleChatbot, "Chatbot", LuSparkles), footerElement?.childNodes[2])
+                ifSettingTrue("sparxAddDesmos", () => {
+                    footerElement?.insertBefore(createQuestionFooterButton("outline", "calculator-button", toggleDesmos, "Calculator", LuCalculator), footerElement?.firstChild)
+                })
+                ifSettingTrue("sparxAddSolution", () => {
+                    footerElement?.insertBefore(createQuestionFooterButton("primary", "solution-question-button", toggleSolution, "Solution"), footerElement?.firstChild)
+                })
+                ifSettingTrue("sparxAddChatbot", () => {
+                    runOnSubscription(() => {
+                        footerElement?.insertBefore(createQuestionFooterButton("outline", "task-tackler-chatbot", toggleChatbot, "Chatbot", LuSparkles), footerElement?.childNodes[2])
+                    })
                 })
                 
                 const answerButton = footerElement?.lastChild
@@ -89,13 +96,15 @@ function cleanFooterBar() {
 }
 
 function saveBookworkCheck() {
-    const questionId = getCurrentQuestionId();
-
-    saveSparxData({
-        question: getQuestion(),
-        submitAnswer: classContains("_QuestionWrapper_")?.innerHTML ?? ""
-    }, questionId, (newData) => {
-        console.log(newData)
+    ifSettingTrue("sparxSaveBookworks", () => {
+        const questionId = getCurrentQuestionId();
+    
+        saveSparxData({
+            question: getQuestion(),
+            submitAnswer: classContains("_QuestionWrapper_")?.innerHTML ?? ""
+        }, questionId, (newData) => {
+            console.log(newData)
+        })
     })
 }
 
@@ -111,7 +120,7 @@ function addCard() {
                 cardElement.classList.add("_Chip_bu06u_1", "_Selected_bu06u_13", "_Boxy_bu06u_75", "_Filled_bu06u_8", "_md_bu06u_84", "task-tackler-sparx-card")
                 cardElement.textContent = "Task-Tackler"
                 cardElement.addEventListener("click", () => {
-                    window.open("https://task-tackler-nu.vercel.app/")
+                    window.open("https://task-tackler-nu.vercel.app/dashboard")
                 })
     
                 cardContainer.appendChild(cardElement)

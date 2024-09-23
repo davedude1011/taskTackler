@@ -1,3 +1,4 @@
+import { ifSettingTrue } from "../../settings/settings";
 import { classContainsAll, easingFunction, functionMapping, removeElements } from "../../utils/utils";
 
 function cleanTitleArea() {
@@ -21,6 +22,8 @@ function cleanHomeworkListArea() {
 }
 
 export function cleanHomescreen() {
-    cleanTitleArea()
-    cleanHomeworkListArea()
+    ifSettingTrue("sparxCleanHomescreen", () => {
+        cleanTitleArea()
+        cleanHomeworkListArea()
+    })
 }

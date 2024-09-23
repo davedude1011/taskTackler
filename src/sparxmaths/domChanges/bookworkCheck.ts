@@ -1,3 +1,4 @@
+import { ifSettingTrue } from "../../settings/settings";
 import { getSparxData } from "../../storage/sparxData";
 import { classContains, easingFunction, removeElements } from "../../utils/utils";
 import { getCurrentQuestionId } from "./solution";
@@ -32,7 +33,7 @@ function changeButton() {
 
 export function cleanBookworkCheck() {
     easingFunction(() => {
-        fillBookworkCheck()
+        ifSettingTrue("sparxInjectBookworks", fillBookworkCheck)
         changeButton()
     }, 2, 0.5)
 }

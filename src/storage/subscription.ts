@@ -1,3 +1,5 @@
+import { sendMessage } from "../utils/communication";
+
 function todaysDateCounter() {
     const currentDate = new Date();
     const unixEpoch = new Date('1970-01-01');
@@ -80,5 +82,11 @@ export function runOnSubscription(callback: Function) {
 export function setStripeId(stripeId: string) {
     chrome.storage.sync.set({ stripeId: stripeId }, function() {
         console.log("Set stripeId")
+    })
+}
+
+export function clearStripeId() {
+    chrome.storage.sync.remove("stripeId", () => {
+        sendMessage("reloadPage", "true")
     })
 }

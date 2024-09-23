@@ -36,7 +36,7 @@ function insertCard() {
             newCardSpan.classList.add("mr-2", "task-tackler-card")
     
             const newCardLink = document.createElement("a")
-            newCardLink.href = "https://task-tackler-nu.vercel.app/"
+            newCardLink.href = "https://task-tackler-nu.vercel.app/dashboard"
             newCardLink.classList.add("header-link")
             newCardLink.textContent = "Task-Tackler"
             newCardLink.setAttribute("data-v-367f2ab0", "")
