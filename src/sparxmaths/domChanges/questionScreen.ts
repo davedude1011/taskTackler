@@ -1,3 +1,4 @@
+import { saveSparxData } from "../../storage/sparxData";
 import { runOnSubscription } from "../../storage/subscription";
 import { LuCalculator, LuSparkles } from "../../utils/icons";
 import { classContains, easingFunction, injectCss, removeElements } from "../../utils/utils";
@@ -88,23 +89,14 @@ function cleanFooterBar() {
 }
 
 function saveBookworkCheck() {
-    const questionId = getCurrentQuestionId()
-    const localData: Record<string, {question: string, answer: string, submitAnswer: string}> = JSON.parse(localStorage.getItem("localData")??"{}")
-    if (!localData[questionId]) {
-        localData[questionId] = {
-            question: getQuestion(),
-            answer: getSolutionString(),
-            submitAnswer: classContains("_QuestionWrapper_")?.innerHTML ?? ""
-        }
-    }
-    else {
-        localData[questionId] = {
-            question: localData[questionId].question,
-            answer: localData[questionId].answer,
-            submitAnswer: classContains("_QuestionWrapper_")?.innerHTML ?? ""
-        }
-    }
-    localStorage.setItem("localData", JSON.stringify(localData))
+    const questionId = getCurrentQuestionId();
+
+    saveSparxData({
+        question: getQuestion(),
+        submitAnswer: classContains("_QuestionWrapper_")?.innerHTML ?? ""
+    }, questionId, (newData) => {
+        console.log(newData)
+    })
 }
 
 function addCard() {

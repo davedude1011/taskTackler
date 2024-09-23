@@ -1,6 +1,7 @@
 import { getLocalSubscriptionCheck, setStripeId } from "../storage/subscription";
 import { onRecieveMessage, sendMessage } from "../utils/communication";
 import { easingFunction, functionMapping } from "../utils/utils";
+import { sparxDashboard } from "./sparx";
 
 function stripeConnection() {
     chrome.storage.sync.get(["stripeId"], function(result) {
@@ -24,7 +25,8 @@ function stripeConnection() {
 
 function main() {
     const mapping = {
-        "/dashboard": [ stripeConnection ]
+        "/dashboard": [ stripeConnection ],
+        "/dashboard/sparx": [ sparxDashboard ]
     }
     functionMapping(mapping)
     easingFunction(() => {
