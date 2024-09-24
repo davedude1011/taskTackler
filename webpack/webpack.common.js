@@ -9,6 +9,7 @@ module.exports = {
       "sparxmaths/main": path.join(srcDir, 'sparxmaths', 'main.ts'),
       "educake/main": path.join(srcDir, 'educake', 'main.ts'),
       "seneca/main": path.join(srcDir, 'seneca', 'main.ts'),
+      "know-it-all-ninja/main": path.join(srcDir, 'know-it-all-ninja', 'main.ts'),
       "dashboard/main": path.join(srcDir, 'dashboard', 'main.ts'),
     },
     output: {
