@@ -5,19 +5,19 @@ import { handleDashboardSettings } from "./settings";
 import { sparxDashboard } from "./sparx";
 
 function stripeConnection() {
+    console.log("RUNNING")
     chrome.storage.sync.get(["stripeId"], function(result) {
         const stripeId = result["stripeId"] as string
         if (stripeId) {
+            console.log(stripeId)
             easingFunction(() => {
                 sendMessage("chromeExtensionSynced", "true")
             }, 1, 0.1)
         }
-        else {
-            onRecieveMessage("stripeId", (stripeId) => {
-                setStripeId(stripeId)
-                sendMessage("chromeExtensionSynced", "true")
-            })
-        }
+    })
+    onRecieveMessage("stripeId", (stripeId) => {
+        setStripeId(stripeId)
+        sendMessage("chromeExtensionSynced", "true")
     })
     onRecieveMessage("refreshSubscriptionData", (_) => {
         getLocalSubscriptionCheck(true)
