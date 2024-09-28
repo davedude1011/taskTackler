@@ -36,10 +36,7 @@
       "run_at": "document_end"
     },
     {
-      "matches": [
-        "https://task-tackler-nu.vercel.app/*",
-        "http://localhost:3000/*"
-      ],
+      "matches": ["https://task-tackler.com/*", "http://localhost:3000/*"],
       "js": ["js/dashboard/main.js"],
       "run_at": "document_end"
     }

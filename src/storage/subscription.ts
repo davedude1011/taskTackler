@@ -15,7 +15,7 @@ async function fetchIsSubscribed(): Promise<boolean> {
 
             if (stripeId) {
                 try {
-                    const response = await fetch('https://task-tackler-nu.vercel.app/api/is-subscribed', {
+                    const response = await fetch('https://task-tackler.com/api/is-subscribed', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'text/plain',

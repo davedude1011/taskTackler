@@ -120,7 +120,7 @@ function addCard() {
                 cardElement.classList.add("_Chip_bu06u_1", "_Selected_bu06u_13", "_Boxy_bu06u_75", "_Filled_bu06u_8", "_md_bu06u_84", "task-tackler-sparx-card")
                 cardElement.textContent = "Task-Tackler"
                 cardElement.addEventListener("click", () => {
-                    window.open("https://task-tackler-nu.vercel.app/dashboard")
+                    window.open("https://task-tackler.com/dashboard")
                 })
     
                 cardContainer.appendChild(cardElement)
