@@ -3,7 +3,7 @@
 
   "name": "task-tackler",
   "description": "A homework extension designed to ease homework sites",
-  "version": "3.1",
+  "version": "3.2",
 
   "options_ui": {
     "page": "options.html"
@@ -48,7 +48,14 @@
 
   "permissions": ["storage", "activeTab"],
 
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": [
+    "https://www.sparxmaths.uk/*",
+    "https://my.educake.co.uk/*",
+    "https://app.senecalearning.com/*",
+    "https://www.knowitallninja.com/*",
+    "https://task-tackler.com/*",
+    "http://localhost:3000/*"
+  ],
 
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
