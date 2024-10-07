@@ -1,5 +1,5 @@
 chrome.action.onClicked.addListener((tab) => {
-  chrome.tabs.create({ url: "https://task-tackler.com/dashboard" });
+  chrome.tabs.create({ url: "https://www.task-tackler.com/dashboard" });
 });
 
 chrome.tabs.onUpdated.addListener(

@@ -32,7 +32,7 @@ export function getSolutionString(question = getQuestion()) {
             return data.answer
         }
     }
-    return ""
+    return "<div style='width: 100%; text-align: center'>😭 No Solution was found for this question. You can try <a href='https://www.gauthmath.com/' target='_blank'>Gauth-math</a>. 😭</div>"
 }
 
 export function getCurrentQuestionId(isBookworkCheck = false): string {

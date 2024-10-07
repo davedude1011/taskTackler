@@ -3,7 +3,7 @@
 
   "name": "task-tackler",
   "description": "A homework extension designed to ease homework sites",
-  "version": "3.2",
+  "version": "3.3",
 
   "options_ui": {
     "page": "options.html"
@@ -57,8 +57,8 @@
     "https://my.educake.co.uk/*",
     "https://app.senecalearning.com/*",
     "https://www.knowitallninja.com/*",
-    "https://task-tackler.com/*",
     "http://localhost:3000/*",
+    "https://task-tackler.com/*",
     "https://www.task-tackler.com/*"
   ],
 

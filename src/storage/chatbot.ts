@@ -58,7 +58,7 @@ export function addSessionHistory(newChatbotData: { role: "user" | "model", part
 }
 
 export async function callbackResponse(input: string, isGlobal = false, callback: (result: {response: string, history: { role: "user" | "model", parts: { text: string }[] }[]}) => void) {
-    fetch('https://task-tackler.com/api/gemini/get-response', {
+    fetch('https://www.task-tackler.com/api/gemini/get-response', {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain',
